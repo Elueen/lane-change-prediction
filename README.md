@@ -2,24 +2,38 @@
 
 This repository contains an early-stage research project on lane change prediction using real-world highway trajectory data.
 
-The project focuses on:
-- trajectory preprocessing and feature construction
-- sequence modeling for lane change prediction
-- reproducible training and evaluation pipelines
+The project focuses on building a basic machine learning pipeline for:
+- trajectory preprocessing
+- feature construction from driving sequences
+- recurrent neural network baselines for lane change prediction
 
-## Status
+This repository is intended as a research portfolio project. It demonstrates how raw trajectory data can be organized into a reproducible workflow for sequence modeling and experimental comparison.
 
-This repository is being cleaned and reorganized for public release.
+## Project Overview
 
-## Planned Structure
+The goal of this project is to predict future lane change behavior from historical vehicle trajectories on highways.
 
-- `src/data/`: data preprocessing and feature extraction
-- `src/models/`: model definitions
-- `src/utils/`: utilities and evaluation metrics
-- `configs/`: experiment configurations
-- `scripts/`: runnable scripts
-- `experiments/`: experiment notes and result summaries
+The current version explores:
+- preprocessing of trajectory data
+- sequence-based feature extraction
+- recurrent models such as RNN, LSTM, and GRU
+- comparison of different model variants for lane change prediction
 
-## Notes
+This is an early-stage project and does not represent a full autonomous driving system.
 
-Dataset files are not included in this repository.
+## Repository Structure
+
+```text
+.
+├── README.md
+├── requirements.txt
+├── src/
+│   ├── models/
+│   ├── core_counting.py
+│   ├── data_check.py
+│   ├── data_display.py
+│   ├── data_splitting.py
+│   ├── deepIRL.py
+│   ├── dump_data.py
+│   ├── general_IRL.py
+│   └── ...
