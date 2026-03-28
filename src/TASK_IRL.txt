@@ -1,0 +1,29 @@
+#!/bin/bash --login
+#$ -cwd                   # Run job from directory where submitted
+
+# If running on a GPU, add:
+#$ -l v100=1
+
+#$ -pe smp.pe 8          # Number of cores on a single compute node. GPU jobs can
+                         # use up to 8 cores per GPU.
+
+# We now recommend loading the modulefile in the jobscript
+# module load apps/binapps/pytorch/1.11.0-39-gpu
+# module load apps/binapps/tensorflow/2.8.0-39-gpu
+# $NSLOTS is automatically set to the number of cores requested on the pe line.
+
+# Inform some of the python libraries how many cores we can use.
+export OMP_NUM_THREADS=$NSLOTS
+export PYTHONPATH=$PYTHONPATH:/mnt/iusers01/fatpou01/compsci01/j90633xl/IRL
+CUDA_LAUNCH_BLOCKING=1
+
+python personal_IRL.py
+# python runFnn.py --epoch 100 --batch-size 128 --learning-rate 0.001 --membership-layer-units 256 --first-dr-layer-units 128 --second-dr-layer-units 64
+# python main_reg.py --membership-layer-units 256 --first-dr-layer-units 128 --second-dr-layer-units 64
+# python model_torch.py --work_dir  './models'
+# python adapt.py --work_dir  './models' --gpu_id '1'
+# python adapt.py --work_dir  './models' --gpu_id '0' --da uda --dset CMAPSS --s '0' --output_src './ckps/source/' --output './ckps/target/'  --max_epoch 3 --interval 30 --alpha 0.2 --layer wn --smooth 0.1 --lr 1e-2 --batch_size 64 --lr_gamma 0.0 --seed 3 --coeff JMDS --warm 0.0
+# python RUL_source.py --gpu_id '0' --da uda --dset CMAPSS --s '2' --output_src './ckps/source/' --output './ckps/target/'  --max_epoch 3 --interval 30 --alpha 0.2 --layer wn --smooth 0.1 --lr 1e-2 --batch_size 64 --lr_gamma 0.0 --seed 3 --coeff JMDS --warm 0.0
+# python source_train_pytorch.py --gpu_id '0' --da uda --dset CMAPSS --s '0' --output_src './ckps/source/' --output './ckps/target/'  --max_epoch 3 --interval 30 --alpha 0.2 --layer wn --smooth 0.1 --lr 1e-2 --batch_size 64 --lr_gamma 0.0 --seed 3 --coeff JMDS --warm 0.0  --trte val
+# python adapt.py --work_dir  './models' --gpu_id '1' --da uda --dset office --s '0' --output_src './ckps/source/' --output './ckps/target/'  --max_epoch 3 --interval 30 --alpha 0.2 --layer wn --smooth 0.1 --lr 1e-2 --batch_size 64 --lr_gamma 0.0 --seed 3 --coeff JMDS --warm 0.0
+# python adapt1006_unsupervised.py --work_dir  './models' --gpu_id '0' --da uda --dset CMAPSS --s '0' --output_src './ckps/source/' --output './ckps/target/'  --epochs 3 --interval 30 --alpha 0.2 --layer wn --smooth 0.1 --lr 1e-2 --batch_size 64 --lr_gamma 0.0 --seed 3 --coeff JMDS --warm 0.0

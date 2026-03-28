@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Outputs
+outcome/
+outputs/
+result/
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Data
+src/data/
+data/
+datasets/
+*.csv
+*.npy
+*.npz
+*.pkl
+
+# Temporary / cluster files
+TASK_IRL.txt.o*
+
+# Environment
+venv/
+.venv/
+env/
