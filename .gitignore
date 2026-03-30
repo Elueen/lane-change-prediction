@@ -44,3 +44,24 @@ TASK_IRL.txt.o*
 venv/
 .venv/
 env/
+
+# Ignore experimental scripts
+src/test*.py
+src/*test*.py
+
+# Ignore IRL / unrelated scripts
+src/deepIRL.py
+src/general_IRL.py
+src/test_GAIL.py
+
+# Ignore temporary utilities
+src/core_counting.py
+src/data_display.py
+src/vel_collection.py
+src/data_splitting.py
+src/dump_data.py
+src/run_commands.py
+src/req_rug.py
+
+# Ignore test scripts in models
+src/models/test*.py
