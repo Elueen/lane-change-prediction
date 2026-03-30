@@ -28,12 +28,14 @@ This is an early-stage project and does not represent a full autonomous driving 
 ├── README.md
 ├── requirements.txt
 ├── src/
-│   ├── models/
-│   ├── core_counting.py
-│   ├── data_check.py
-│   ├── data_display.py
-│   ├── data_splitting.py
-│   ├── deepIRL.py
-│   ├── dump_data.py
-│   ├── general_IRL.py
-│   └── ...
+│   ├── train.py
+│   └── models/
+│       ├── rnn.py
+│       ├── lstm.py
+│       ├── gru.py
+│       ├── lp_lstm.py
+│       ├── lp_gru.py
+│       ├── lp_rnn.py
+│       ├── linear.py
+│       ├── model_factory.py
+│       └── utils.py
